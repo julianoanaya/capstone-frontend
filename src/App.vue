@@ -3,6 +3,14 @@
     <router-link to="/">Home</router-link>
     |
     <router-link to="/about">About</router-link>
+    |
+    <router-link to="/mangas">All Mangas</router-link>
+    |
+    <router-link to="/mangas/new">New Manga</router-link>
+    |
+    <router-link to="/animes">All Animes</router-link>
+    |
+    <router-link to="/animes/new">New Anime</router-link>
   </nav>
   <router-view />
 </template>
