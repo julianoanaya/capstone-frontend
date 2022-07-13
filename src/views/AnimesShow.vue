@@ -51,6 +51,7 @@ export default {
             <p>Seasons: {{ anime.seasons }}</p>
             <p>Episodes: {{ anime.episode }}</p>
             <p>Dubbed: {{ anime.dub }}</p>
+            <a v-bind:href="anime.anime_url" class="cta-btn align-self-start">Watch It</a>
             <a class="cta-btn align-self-start" v-on:click="createFavorite()">Add to Favorites</a>
           </div>
 
@@ -62,17 +63,5 @@ export default {
         </div>
       </div>
     </section>
-    <!-- <h2>{{ anime.name }}</h2> -->
-    <!-- <img v-bind:src="anime.image_url" v-bind:alt="anime.name" /> -->
-    <!-- <p>Description: {{ anime.description }}</p> -->
-    <!-- <p>Seasons: {{ anime.seasons }}</p> -->
-    <!-- <p>Episodes: {{ anime.episode }}</p> -->
-    <!-- <p>Dubbed: {{ anime.dub }}</p> -->
-    <!-- <p>Where to Watch: {{ anime.anime_wheres }}</p> -->
-    <!-- <p><router-link v-bind:to="`/animes/${anime.id}/edit`">Edit Anime</router-link></p> -->
-    <!-- <p><router-link to="/animes">Back to all anime</router-link></p> -->
-    <!-- <p><button v-on:click="destroyAnime(anime)">Delete Anime</button></p> -->
-    <!-- <p><button v-on:click="destroyFavorite(anime)"></button></p> -->
-    <!-- <p><button v-on:click="createFavorite()">Add to Favorite</button></p> -->
   </div>
 </template>
