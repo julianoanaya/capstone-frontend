@@ -47,7 +47,8 @@ export default {
             <p>{{ manga.description }}</p>
             <p>Volumes: {{ manga.volume }}</p>
             <p>Chapters: {{ manga.chapter }}</p>
-            <a class="cta-btn align-self-start" href="#">Add to Favorites</a>
+            <a v-bind:href="manga.manga_url" class="cta-btn align-self-start">Read It</a>
+            <a class="cta-btn align-self-start" v-on:click="createFavorite()">Add to Favorites</a>
           </div>
 
           <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
@@ -58,15 +59,5 @@ export default {
         </div>
       </div>
     </section>
-    <!-- <h2>{{ manga.name }}</h2> -->
-    <!-- <img v-bind:src="manga.image_url" v-bind:alt="manga.name" /> -->
-    <!-- <p>Description: {{ manga.description }}</p> -->
-    <!-- <p>Volumes: {{ manga.volume }}</p> -->
-    <!-- <p>Chapters: {{ manga.chapter }}</p> -->
-    <!-- <p>Where to Read: {{ manga.where_to_reads }}</p> -->
-    <!-- <p><router-link v-bind:to="`/mangas/${manga.id}/edit`">Edit manga</router-link></p> -->
-    <!-- <p><router-link to="/mangas">Back to all manga</router-link></p> -->
-    <!-- <p><button v-on:click="destroyManga(manga)">Delete Manga</button></p> -->
-    <!-- <p><button v-on:click="createFavorite()">Add to Favorite</button></p> -->
   </div>
 </template>
