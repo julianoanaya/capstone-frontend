@@ -48,7 +48,7 @@ export default {
       Chapters:
       <input type="text" v-model="editMangaParams.chapter" />
       Image URL:
-      <input type="text" v-model="editMangaParams.images" />
+      <input type="text" v-model="editMangaParams.image_url" />
       <input type="submit" value="Update" />
     </form>
   </div>

@@ -8,6 +8,10 @@ import AnimesIndex from "../views/AnimesIndex.vue";
 import AnimesNew from "../views/AnimesNew.vue";
 import AnimesShow from "../views/AnimesShow.vue";
 import AnimesEdit from "../views/AnimesEdit.vue";
+import SignupView from "../views/SignupView.vue";
+import LoginView from "../views/LoginView.vue";
+import LogoutView from "../views/LogoutView.vue";
+import FavoritesIndex from "../views/FavoritesIndex.vue";
 
 const routes = [
   {
@@ -47,13 +51,33 @@ const routes = [
   },
   {
     path: "/animes/:id",
-    name: "ainmes-show",
+    name: "animes-show",
     component: AnimesShow,
   },
   {
     path: "/animes/:id/edit",
     name: "animes-edit",
     component: AnimesEdit,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: SignupView,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: LogoutView,
+  },
+  {
+    path: "/favorites",
+    name: "favorites",
+    component: FavoritesIndex,
   },
   {
     path: "/about",

@@ -4,6 +4,8 @@ export default {
   data: function () {
     return {
       anime: {},
+      favorite: {},
+      favoriteAnimeParams: {},
     };
   },
   created: function () {
@@ -19,20 +21,58 @@ export default {
         this.$router.push("/animes");
       });
     },
+    createFavorite: function () {
+      // this.favoriteAnimeParams.user_id = this.current_user_id;
+      this.favoriteAnimeParams = { anime_id: this.anime.id };
+      axios.post("/favorites.json", this.favoriteAnimeParams).then((response) => {
+        console.log("Added to Favorites", response);
+
+        this.$router.push("/favorites");
+      });
+    },
+    // destroyFavorite: function (anime) {
+    //   axios.delete("/favorites/" + anime.id).then((response) => {
+    //     console.log("removed from favorites", response);
+    //     this.$router.push("/favorites");
+    //   });
+    // },
   },
 };
 </script>
 
 <template>
   <div class="animes-show">
-    <h2>{{ anime.name }}</h2>
-    <img v-bind:src="anime.image_url" v-bind:alt="anime.name" />
-    <p>Description: {{ anime.description }}</p>
-    <p>Seasons: {{ anime.seasons }}</p>
-    <p>Episodes: {{ anime.episode }}</p>
-    <p>Dubbed: {{ anime.dub }}</p>
-    <p><router-link v-bind:to="`/animes/${anime.id}/edit`">Edit Anime</router-link></p>
-    <p><router-link to="/animes">Back to all anime</router-link></p>
-    <p><button v-on:click="destroyAnime(anime)">Delete Anime</button></p>
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-out">
+        <div class="row g-5">
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>{{ anime.name }}</h3>
+            <p>{{ anime.description }}</p>
+            <p>Seasons: {{ anime.seasons }}</p>
+            <p>Episodes: {{ anime.episode }}</p>
+            <p>Dubbed: {{ anime.dub }}</p>
+            <a class="cta-btn align-self-start" v-on:click="createFavorite()">Add to Favorites</a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img v-bind:src="anime.image_url" v-bind:alt="anime.name" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <h2>{{ anime.name }}</h2> -->
+    <!-- <img v-bind:src="anime.image_url" v-bind:alt="anime.name" /> -->
+    <!-- <p>Description: {{ anime.description }}</p> -->
+    <!-- <p>Seasons: {{ anime.seasons }}</p> -->
+    <!-- <p>Episodes: {{ anime.episode }}</p> -->
+    <!-- <p>Dubbed: {{ anime.dub }}</p> -->
+    <!-- <p>Where to Watch: {{ anime.anime_wheres }}</p> -->
+    <!-- <p><router-link v-bind:to="`/animes/${anime.id}/edit`">Edit Anime</router-link></p> -->
+    <!-- <p><router-link to="/animes">Back to all anime</router-link></p> -->
+    <!-- <p><button v-on:click="destroyAnime(anime)">Delete Anime</button></p> -->
+    <!-- <p><button v-on:click="destroyFavorite(anime)"></button></p> -->
+    <!-- <p><button v-on:click="createFavorite()">Add to Favorite</button></p> -->
   </div>
 </template>
